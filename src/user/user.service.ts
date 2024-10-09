@@ -18,4 +18,8 @@ export class UserService {
       data: dto,
     });
   }
+
+  async deleteUser(email: string): Promise<UserDTO> {
+    return this.userRepository.deleteUser({ email });
+  }
 }
