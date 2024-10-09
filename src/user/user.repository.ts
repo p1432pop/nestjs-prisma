@@ -9,4 +9,15 @@ export class UserRepository {
   async createUser(data: Prisma.UserCreateInput): Promise<User> {
     return this.prisma.user.create({ data });
   }
+
+  async updateUser(params: {
+    where: Prisma.UserWhereUniqueInput;
+    data: Prisma.UserUpdateInput;
+  }): Promise<User> {
+    const { where, data } = params;
+    return this.prisma.user.update({
+      data,
+      where,
+    });
+  }
 }
